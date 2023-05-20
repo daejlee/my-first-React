@@ -44,7 +44,7 @@ function Detail(){
 				<hr/>
 				<h2>About this movie... 🧐</h2>
 				<p className={styles.description}>{movie.description_full}</p>
-				<h2>Rating : {stars}</h2>
+				<h2>IMDb Rating : {stars}</h2>
 				<h2>Genres : </h2>
 				<ul className={styles.genre}>
 					{movie.genres.map((g) => (

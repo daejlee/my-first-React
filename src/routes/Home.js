@@ -54,6 +54,7 @@ function Home(){
 			<h2>You are viewing movies that rated higher than {curScore}.</h2>) : (
 			<h2>Invalid input. Please enter a number between 0 and 10.</h2>
 			)}
+			<h2>Click on movie's title if you want detail of it! 😙</h2>
 			<hr/>
 			{movies.map((movie) => (
 				<Movie
