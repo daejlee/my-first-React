@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div id="root"></div>
+	</body>
+	<script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+	<script type="text/babel">
+		function Btn({ text, fontSize = 16 }) { //props is object and fst and last parameter and prop is not event listner
+			console.log(text, "was rendered");
+			return (
+				<button
+					style={{
+						backgroundColor: "tomato",
+						color: "white",
+						fontSize: "1.5rem",
+						borderRadius: "0.5rem",
+						padding: "0.5rem 1rem",
+						border: "none",
+						fontSize: fontSize
+					}}>
+					{text}
+				</button>
+					);
+				}
+        const MemorizedBtn = React.memo(Btn); //re-render only if props suffer change
+		Btn.propTypes = {
+			text: PropTypes.string.isRequired,
+			fontSize: PropTypes.number,
+		};
+		function App() {
+			const [val, setVal] = React.useState("Save Changes");
+			const onChange = () => { setVal("Revert Changes");
+      console.log("changed");
+    };
+			return (
+				<div>
+					<Btn text={val} fontSize={18}/>
+					<Btn text={"Continue"} />
+				</div>
+			);
+		}
+		const root = document.getElementById("root");
+		ReactDOM.render(<App />, root);
+	</script>
+</html>
